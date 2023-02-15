@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="w3.css">
+    <link rel="icon" href="linux.png" type="image/gif" sizes="16x16">
+    <title>Tutorial Linux</title>
+</head>
+
+<body style="min-height: 1000px; background-color: black; color: yellow;">
+    <div class="container w3-white w3-card-4">
+        <img src="banner.jpeg" alt="Gambar Background Hitam" style="width: 100%;">
+    </div>
+    <div class="w3-bar w3-yellow w3-text-black">
+        <button class="w3-bar-item w3-button w3-hover-red w3-hover-text-black" onclick="tujuankota('home')">Home</button>
+        <button class="w3-bar-item w3-button w3-hover-red w3-hover-text-black" onclick="tujuankota('profile')">Profile</button>
+        <div class="w3-dropdown-hover">
+            <button class="w3-button w3-hover-red w3-hover-text-black">Debian</button>
+            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                <button class="w3-bar-item w3-button w3-hover-red w3-hover-text-black" onclick="tujuankota('debian1')">Apa Itu Debian?</button>
+                <button class="w3-bar-item w3-button w3-hover-red w3-hover-text-black" onclick="tujuankota('debian2')">Cara Install Debian</button>
+            </div>
+            </div>
+    <div class="w3-dropdown-hover">
+        <button class="w3-button w3-hover-red w3-hover-text-black">Web Server</button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+            <button class="w3-bar-item w3-button w3-hover-red w3-hover-text-black" onclick="tujuankota('webserver1')">Apa Itu Web Server?</button>
+            <button class="w3-bar-item w3-button w3-hover-red w3-hover-text-black" onclick="tujuankota('webserver2')">Konfigurasi Web Server</button>
+        </div>
+    </div>
+    <div class="w3-dropdown-hover">
+        <button class="w3-button w3-hover-red w3-hover-text-black">SSH Server</button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+            <button class="w3-bar-item w3-button w3-hover-red w3-hover-text-black" onclick="tujuankota('sshserver1')">Apa Itu SSH Server?</button>
+            <button class="w3-bar-item w3-button w3-hover-red w3-hover-text-black" onclick="tujuankota('sshserver2')">Konfigurasi SSH Server</button>
+        </div>
+    </div>
+    <div class="w3-dropdown-hover">
+        <button class="w3-button w3-hover-red w3-hover-text-black">FTP Server</button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+            <button class="w3-bar-item w3-button w3-hover-red w3-hover-text-black" onclick="tujuankota('ftpserver1')">Apa Itu FTP Server?</button>
+            <button class="w3-bar-item w3-button w3-hover-red w3-hover-text-black" onclick="tujuankota('ftpserver2')">Konfigurasi FTP Server</button>
+        </div>
+    </div>
+    </div>
+    <div id="home" class="w3-container kota" style="display: block;">
+        <center>
+            <img src="linux.jpeg" style="width: 500px; margin-top: 20px;">
+        </center>
+    </div>
+    <div id="profile" class="w3-container kota" style="display: none;">
+        <center>
+            <img src="linux.jpeg" alt="foto saya" class="w3-animate-top" style="width: 200px; margin-top: 20px;">
+            <table>
+                <tr><td>Nama</td><td>:</td><td>Achmad Fadly Bayhaqky</td></tr>
+                <tr><td>Nim</td><td>:</td><td>10122495</td></tr>
+                <tr><td>Kelas</td><td>:</td><td>IF-4</td></tr>
+            </table>
+        </center>
+    </div>
+    <div id="ftpserver1" class="w3-container kota" style="display: none; text-align: justify;">
+        <h2><b>Apa Itu FTP Server?</b></h2>
+        <img src="ftpserver.jpeg" class="w3-animate-right" style="width: 200px;">
+        <p><b>FTP (File Transfer Protocol)</b> adalah protocol yang digunakan untuk mengirim data seperti untuk melakukan upload dan download data oleh FTP client dan FTP server. Pada artikel kali ini kita akan membangun sebuah jaringan FTP menggunakan proftpd diinstal di debian. Konfigurasi yang dibuat kali ini adalah user yang terdaftar saja yang akan dapat mengakses data-data yang sudah dimasukan ke FTP server. Cara proses bekerja ftp hampir sama dengan protocol lainnya.</p>
+        <p>FTP juga bertugas urusan pertukaran data. Agar client dapat mengakses FTP biasanya menggunakan browser yang terinstal di komputer tersebut atau File Explorer yang ada di Windows, dengan mengetikan url yang sama yaitu ftp:// nama domain atau IP address server.</p>
+    </div>
+    <div id="ftpserver2" class="w3-container kota" style="display: none; text-align: justify;">
+        <h2><b>Konfigurasi FTP Server</b></h2>
+        <img src="ftpserver.jpeg" class="w3-animate-right" style="width: 200px;">
+        <p>Sebelum menginstall ftp di debian server harus terhubung ke internet atau sudah memiliki cd/dvd debian agar saat instalasi proFTPd berhasil. Disini sebagai contoh konfigurasi kali ini menggunakan virtualbox.</p>
+        <p>1. Buka debian anda dan login, ketik perintah <b>su</b> agar menjadi user root.</p>
+        <p>2. Setelah itu konfigurasi IP address pada interfaces, ketik perintah dibawah ini dan IP address sesuaikan dengan keinginan anda sendiri contoh pada gambar dibawah:</p>
+        <pre><code>nano /etc/network/interfaces</code></pre>
+        <img src="https://1.bp.blogspot.com/--GA_Gk7Q0Q4/XeZP1j9vdUI/AAAAAAAABZ8/t22QQH2fEy0Xx4fZ0OPjGyBFYzdMf56swCLcBGAsYHQ/s640/interfaces-debian.PNG" class="w3-animate-right">
+        <p>Simpan dan restart dengan menjalankan perintah:</p>
+        <pre><code>/etc/init.d/networking restart</code></pre>
+        <p>4. Selanjutnya install proFTPd, jika muncul proFTPd configuration pilih <b>standalone</b>, berikut perintahnya:</p>
+        <pre><code>apt-get install proftpd</code></pre>
+        <img src="https://1.bp.blogspot.com/-RV_Dl32Kvwo/XeZQq1tJaKI/AAAAAAAABaE/tquaS46DVFIZ7ZHd595i8qRzhGwwjC3-ACLcBGAsYHQ/s640/install-proftpd-ftp-debian-linux.PNG" class="w3-animate-right"><br>
+        <img src="https://1.bp.blogspot.com/-STYpB6ymj9E/XeZQq8eL27I/AAAAAAAABaI/HgReyQC5z_8LFmeHLy7Ki11Z_GXc7o_RwCLcBGAsYHQ/s640/proFTPD-configuration-debian.PNG" class="w3-animate-right">
+        <p>5. Setelah instalasi berhasil, selanjutnya buka direktori proftpd untuk melakukan konfigurasi, jalankan perintah dibawah ini:</p>
+        <pre><code>nano /etc/proftpd/proftpd.conf</code></pre>
+        <p>6. Setelah itu tambahkan beberapa script di bagian paling bawah, scriptnya ada dibawah ini:</p>
+        <p>&lt;Anonymous /home/debian&gt;<br>
+        User debian<br>
+        &lt;/Anonymous&gt;</p>
+        <img src="https://1.bp.blogspot.com/-Fgm6TZKGdCU/XeZRlE5psKI/AAAAAAAABaY/g8zc84ATFmEOnUovxzCQSaQ5nIHTb0mGQCLcBGAsYHQ/s640/configuration-proftpd.conf-debian.PNG" class="w3-animate-right">
+        <p>Penjelasan script diatas:</p>
+        <ol>
+            <li>&lt;Anonymous /home/debian&gt; = Adalah direktori penyimanan data yang nanti akan diakses pada ftp</li>
+            <li>User debian = adalah nama user yang akan mengakses ftp tersebut</li>
+            <li>&lt;/Anonymous&gt; penutupan dari script</li>
+        </ol>
+        <p>7. Simpan konfigurasi diatas lalu restart proFTPd:</p>
+        <pre><code>/etc/init.d/proftpd restart</code></pre>
+        <p>8. Buat folder dalam /home/debian, debian adalah nama username dari debian saya jika anda menggunakan username nama anda sendiri ubahlah script diatas dan sesuaikan. Berikut cara buat folder di direktori</p>
+        <pre><code>cd /home/debian<br>mkdir DATA MANGLADATECH</code></pre>
+        <p>Contoh diatas adalah perintah membuat folder dengan nama "DATA MANGLDATECH" anda bebas mengubah, contoh mkdir data anda, lalu cd /home/usernamedebiananda</p>
+        <p>9. Buat user yang sudah didaftarkan tadi, ketik perintah:</p>
+        <pre><code>adduser debian</code></pre>
+        <p>10. Restart proFTPd:</p>
+        <pre><code>/etc/init.d/proftpd restart</code></pre>
+        <h3>Akses FTP di Client</h3>
+        <p>Langkah terakhir adalah setting client dengan jaringan yang sama seperti di interfaces, lalu buka browser lalu jalankan pada tab url ftp://192.168.100.2 ini adalah contoh ip saya, ganti ip sesuai ip address yang anda konfigurasi. Jika ftp sudah terbuka, ftp akan meminta username dan password masukan user yang sudah didaftarkan pada form tersebut.</p>
+        <img src="https://1.bp.blogspot.com/-FuJxSJqYAto/XeZWoJm9-WI/AAAAAAAABbE/QWA_YdI4mY0jf2WrIk1lIu6jMRbMoomqQCLcBGAsYHQ/s640/login-ftp-debian.PNG" class="w3-animate-right"><br>
+        <img src="https://1.bp.blogspot.com/-cYQpxVOHDKA/XeZWxYkyn_I/AAAAAAAABbM/5ExedvQkGnYmJpBks8Aa85A4NL0MzqbAgCLcBGAsYHQ/s640/cara-konfigurasi-ftp-di-debian-dengan-virtualbox.PNG" class="w3-animate-right">
+
+    </div>
+    <div id="webserver1" class="w3-container kota" style="display: none; text-align: justify;">
+        <h2><b>Apa Itu Web Server?</b></h2>
+        <img src="webserver.jpeg" class="w3-animate-bottom" style="width: 200px;">
+        <p>Namun sebelum membahas lebih jauh tentang konfigurasi, lebih baik pahami dulu apa itu software transfer data. Web server merupakan software yang menyimpan, memroses, sekaligus mengirimkan file kepada web browser. Perangkat itulah yang memproses permintaan dari user.</p>
+        <p>Ada beberapa jenis server yang dipakai oleh banyak pengguna. Setiap software mempunyai kelebihan dan kekurangan. Berikut daftar perangkat lunak open-source yang gratis:</p>
+        <ul>
+            <li>Nginx</li><li>Apache</li><li>LiteSpeed</li><li>IIS</li><li>Hiawatha</li><li>Google Web Server</li><li>Cherokee</li>
+        </ul>
+    </div>
+    <div id="webserver2" class="w3-container kota" style="display: none; text-align: justify;">
+        <h2><b>Konfigurasi Web Server</b></h2>
+        <img src="webserver.jpeg" class="w3-animate-bottom" style="width: 200px;">
+        <p>Selanjutnya adalah cara untuk konfigurasi Apache di Linux Debian 8 dengan memakai virtualbox. Apache harus di-<em>install</em> dulu dengan perintah apt-get-install Apache2. Setelah terpasang, ikuti langkah berikut:</p>
+        <ul>
+            <li>Masuklah ke direktori sites-available dengan memasukkan perintah cd/etc/apache2) sites-available.</li>
+            <li>Ada dua file yang ditampilkan. <em>Copy</em> file 000-default.conf kemudian ubahlah sesuai nama domain. Caranya dengan menulis perintah cp 000-default.conf namadomain.conf.</li>
+            <li>Masukkan kode pico namadomain.conf untuk mengedit.</li>
+            <li>Tekan kombinasi CTRL+W, kemudian ketika ServerName.</li>
+            <li>Setelah itu ganti dengan www.namadomain.com&amp;lt.</li>
+            <li>Pada bagian ServerAdmin, diisi dengan alamat email.</li>
+            <li>Kemudian DocumentRoot dipilih lokasi penyimpanan, misal /home/web.</li>
+            <li>Selanjutnya tekan CTRL+X, dan ketik Y.</li>
+            <li>Tekan tombol <em>Enter.</em></li>
+            <li>Tulis pico/etc/apache2/apache2.conf.</li>
+            <li>Ubah jadi Require all granted dari yang asalnya Require all denied.</li>
+            <li>Tulis a2dissite 000-default.conf.</li>
+            <li>Aktifkan namadomain.conf dengan memasukkan perintah a2ensite namadomain.conf.</li>
+            <li>Muat satu file HTML.</li>
+            <li>Ubahlah <em>script</em>-nya.</li>
+            <li><em>Save</em> dengan nama index.html.</li>
+            <li>Kemudian ketik service apache2 restart.</li>
+            </ul>
+    </div>
+    <div id="sshserver1" class="w3-container kota" style="display: none; text-align: justify;">
+        <h2><b>Apa Itu SSH Server?</b></h2>
+        <img src="sshserver.jpeg" class="w3-animate-left" style="width: 200px;">
+        <p>Secara Singkat SSH adalah sebuah protokol administrasi yang memungkinkan user untuk mengakses dan memodifikasi berbagai macam pengaturan maupun file yang ada di dalam server.</p>
+    </div>
+    <div id="sshserver2" class="w3-container kota" style="display: none; text-align: justify;">
+        <h2><b>Konfigurasi SSH Server</b></h2>
+        <img src="sshserver.jpeg" class="w3-animate-left" style="width: 200px;">
+        <p>Untuk melakukan Instalasi SSH Server, beberapa tahap harus kita lakukan.</p>
+        <ul><li>Konfigurasi IP Address</li><li>Cek Koneksi</li><li>Instalasi SSH Server (openssh-server)</li></ul>
+        <p>Baik untuk tahap pertama, pastikan teman-teman sudah login sebagai user <b>root</b> pada sistem operasi linux debian yang sudah kita install sebelumnya.</p>
+        <p>Pada tahap ini, silahkan login sebagai user <b>root</b></p>
+        <img src="https://1.bp.blogspot.com/-yuBkPYmEH6g/Xxb_UbFxyTI/AAAAAAAABRI/ex_p4AFjuhoomxomhCKdDuIGrO4lYj0SgCPcBGAYYCw/w400-h160/1.webp" class="w3-animate-left">
+        <p>Sebelumnya kita akan mengecek kembali, bahwa adapter 1 / eth0 ter <b>bridge</b> ke <b>internet</b>, karena pada saat ini <b>koneksi internet</b> saya menggunakan <b>WIFI</b>, maka <b>disesuaikan dengan adapter</b> nya, oleh karena itu saya menggunakan Qualcomm ,,,,,</p>
+        <img src="https://1.bp.blogspot.com/-1ZtXbGD3dzw/Xxb_XXNlvgI/AAAAAAAABQ8/kxwF6J7-C5cA-xg9joIm8g2SRHSMg4EmgCPcBGAYYCw/w500-h170/2.webp" class="w3-animate-left">,
+        <p>Jika sudah, saat nya kita lakukan konfigurasi IP Address pada Linux Debian, tapi sebelum itu kita akan mengecek berapakah IP Address Internet yang kita dapatkan dari ISP.</p>
+        <p>Disini saya menggunakan Hostpot dari HP, dan gambar dibawah ini adalah ip yang saya dapatkan.</p>
+        <p>Untuk mengecek IP Address di windows, saya menggunakan <b>CMD</b>, lalu ketik <b>ipconfig /all</b></p>
+        <img src="https://1.bp.blogspot.com/-fyviMH24VX0/Xxb_YEAUXNI/AAAAAAAABRE/IDt3h4plMsgvRvePEiX0CGKAz9wrvADMQCPcBGAYYCw/w640-h216/3.webp" class="w3-animate-left">
+        <p>Jika sudah, berikutnya kita akan mengkonfigurasi IP Address pada Linux Debian cara nya :</p>
+        <pre><code>nano /etc/network/interfaces</code></pre>
+        <img src="https://1.bp.blogspot.com/-yjFrh_jP3aQ/Xxb_Yg5hZvI/AAAAAAAABRQ/E1FESM2b6xouiM1B7jCDy51sTPnEgR5SQCPcBGAYYCw/w640-h54/4.webp" class="w3-animate-left">
+        <p>Lalu ketikan konfigurasi IP Address seperti dibawah ini.</p>
+        <pre><code>auto eth0<br>iface eth0 inet static<br>     address 192.168.43.100<br>     netmask 255.255.255.0<br>     network 192.168.43.0<br><span>&nbsp;&nbsp; &nbsp;</span><span> broadcast 192.168.43.255<br><span>&nbsp;&nbsp; &nbsp; gateway 192.168.43.1<br><br>auto eth1<br>iface eth1 inet static<br><span>&nbsp;&nbsp; &nbsp;</span> address 192.168.10.1<br><span>&nbsp;&nbsp; &nbsp;</span> netmask 255.255.255.0<br><span>&nbsp;&nbsp; &nbsp;</span> network 192.168.10.0<br><span>&nbsp;&nbsp; &nbsp;</span> broadcast 192.168.10.255<br></span></span></code></pre>
+        <img src="https://1.bp.blogspot.com/-NiEY5s0UqGA/Xxb_Yy3_kBI/AAAAAAAABRM/jpSb4HE5OqUs0GvgaUjEAbTsUWKLv-vtQCPcBGAYYCw/w400-h311/5.webp" class="w3-animate-left">
+        <p>Jika sudah, silahkan di save dengan cara</p>
+        <p><b>ctrl+x</b> lalu <b>y</b> lalu <b>enter</b></p>
+        <p>atau cara cepatnya</p>
+        <p><b>ctrl+x y enter</b></p>
+        <img src="https://1.bp.blogspot.com/-5y8bU8DgAx0/Xxb_Y4DxyZI/AAAAAAAABRI/fj5-eQ46iGgT9qfoIv-8llGYZE1Cvm2rgCPcBGAYYCw/w500-h43/6.webp" class="w3-animate-left">
+        <p>Jika sudah, lakukan restart pada Konfigurasi yang sudah kita buat tadi. dengan cara</p>
+        <pre><code>/etc/init.d/networking restart<br>atau<br>service networking restart<br></code></pre>
+        <img src="https://1.bp.blogspot.com/-aGRiNKtkVSg/Xxb_ZwkglvI/AAAAAAAABRQ/Fvfg870qbKk5eNAAnws7RNZ9lQuUWiD9wCPcBGAYYCw/w500-h56/8.webp" class="w3-animate-left">
+        <p>Berikutnya adalah, mengecek konfigurasi IP Address yang sudah kita buat, dengan mengetikan perintah</p>
+        <pre><code>ifconfig</code></pre>
+        <img src="https://1.bp.blogspot.com/-y2U5c8UqtTI/Xxb_ZlG9k7I/AAAAAAAABRM/MD0qdK1g1SkFKemX0f-GYAab0rnLjetegCPcBGAYYCw/w400-h296/9.webp" class="w3-animate-left">
+        <p>Tahap berikutnya adalah, kita akan menginstall SSH atau openssh-server pada Linux Debian kita, Berikut ini adalah cara nya.</p>
+        <p>1. Jalankan perintah</p>
+        <pre><code>apt-get install openssh-server</code></pre>
+        <img src="https://1.bp.blogspot.com/-zLNbq67gEDI/Xxb_URBpyHI/AAAAAAAABRM/oiHy4cVEV-ct8KtYqjI0o5w_VAoYXTN7QCPcBGAYYCw/w400-h181/10.webp" class="w3-animate-left">
+        <p>2. Berikutnya kita akan diperintahkan, untuk memasukkan ISO DEBIAN Paket 1 berikut ini cara nya,</p>
+        <p><b>devices > optical disk > iso</b></p>
+        <img src="https://1.bp.blogspot.com/-tt6EeJC4Tx8/Xxb_UdCsfbI/AAAAAAAABRM/QrfOmgYR2jYmvlNAO31I_Bm1hRLcNL55wCPcBGAYYCw/w400-h146/11.webp" class="w3-animate-left">
+        <p>3. Jika sudah dimasukkan, silahkan klik <b>enter</b> pada layar anda</p>
+        <img src="https://1.bp.blogspot.com/-b0PjUrW1A9I/Xxb_VfxX7kI/AAAAAAAABQ4/1RoRbCU1NVIKrmx_4diznH0msTuGofB1ACPcBGAYYCw/w400-h303/12.webp" class="w3-animate-left">
+        <p>4. Silahkan tunggu beberapa saat, jika sudah selesai hal yang akan kita lakukan adalah, mengecek <b>status</b> dari SSH Server yang sudah kita install, dengan perintah</p>
+        <pre><code>/etc/init.d/ssh status</code></pre>
+        <img src="https://1.bp.blogspot.com/-HMyTG8C6Vsw/Xxb_VTgPimI/AAAAAAAABRA/RB-LPDAOyYsm831_KrdmtsqosPz6RgdigCPcBGAYYCw/w400-h103/13.webp" class="w3-animate-left">
+        <p>Jika sudah berhasil, maka akan muncul informasi OK, dan ada informasi port yang digunakan</p>
+        <p>5. Berikutnya adalah, kita akan mengkonfigurasi IP Pada <b>Adapter 2</b>, atau <b>eth1</b>, yaitu pada interfaces <b>Virtual Host Only Adapter</b>.</p>
+        <p>Seperti biasa, silahkan ikuti pada gambar dibawah ini</p>
+        <img src="https://1.bp.blogspot.com/-YWxH37iZbgk/Xxb_V86Xs8I/AAAAAAAABQ4/URFEUc304Pkdfb9P9QD8cWYBPCKmcOhngCPcBGAYYCw/w400-h353/14.webp" class="w3-animate-left"><br>
+        <img src="https://1.bp.blogspot.com/-QChjWEgA1yc/Xxb_WHr92hI/AAAAAAAABRM/fQ7DKW9oxesyroHvtcS0A8XgvAHmQOyMACPcBGAYYCw/w625-h339/15.webp" class="w3-animate-left">
+        <p>6. Silahkan cek konfigurasi IP Address pada Host Only Adapter yang tersedia di Windows yang sudah kita Setting tadi.</p>
+        <img src="https://1.bp.blogspot.com/-BibSUuGdt1M/Xxb_WS_PdoI/AAAAAAAABRQ/S9puthWUlhYj9IArpBswQlfCHMfVO1nhQCPcBGAYYCw/w640-h212/16.webp" class="w3-animate-left">
+        <p>7. Silahkan di cek, pastikan kedua <b>Client dan Server</b> sudah bisa <b>terhubung</b>, coba teman-teman cek dengan cara melakukan ping IP Address dari</p>
+        <p><b>Client ke Server</b></p>
+        <p><b>dan</b></p>
+        <p><b>Server ke Client</b></p>
+        <img src="https://1.bp.blogspot.com/-7Lqp-l-1Nhc/Xxb_WgfqL4I/AAAAAAAABRA/7nLcMhiTzG0Vy41DIegXshWWp1NPOG8lQCPcBGAYYCw/w640-h126/17.webp" class="w3-animate-left">
+        <p>8. Jika sudah, kita akan melakukan SSH Connection, menggunakan aplikasi <b>Putty</b>, teman-teman bisa download di website resmi nya, <a href="https://www.putty.org/">https://www.putty.org/</a></p>
+        <img src="https://1.bp.blogspot.com/-hYkj5Luu5Wo/Xxb_W6ROzpI/AAAAAAAABRI/cxUiS0Q27LgpaSNY722fMF38ehmyTChbQCPcBGAYYCw/w400-h390/18.webp" class="w3-animate-left">
+        <p>Berikutnya kita klik <b>yes</b> saja.</p>
+        <img src="https://1.bp.blogspot.com/-S4MX_PEbO1Y/Xxb_XWuz4lI/AAAAAAAABRQ/LRIM5SLC5pATAXyFYPHVo2KCuFpFeMaFACPcBGAYYCw/w320-h281/19.webp" class="w3-animate-left">
+        <p>9. Berikut ini adalah tampilan saat teman-teman berhasil  melakukan SSH ke Linux Debian</p>
+        <p>saat pertama kali login, teman-teman harus login sebagai <b>User Biasa / bukan root</b>.</p>
+        <img src="https://1.bp.blogspot.com/-q6znADxPpVQ/Xxb_XvRneHI/AAAAAAAABRI/FiPK7TDaumIZMDUMhMQlPAwDWu5-aGixACPcBGAYYCw/w400-h155/20.webp" class="w3-animate-left">
+        <p>Jika sudah berhasil login, maka teman-teman bisa login sebagai <b>user root</b>, dengan cara ketik <b>su</b> lalu enter (su artinya super user)</p>
+        <img src="https://1.bp.blogspot.com/-2Nli3dDpguI/Xxb_X3wmH1I/AAAAAAAABRA/LUxCXaU2Pr0JudKGppLY7rSU_Z-M-LrPwCPcBGAYYCw/w400-h210/21.webp" class="w3-animate-left"><br>
+        <img src="https://1.bp.blogspot.com/-_N-V3sthKFU/Xxb_YGvP8wI/AAAAAAAABRQ/3ICjXa-h5s04Xwh37VXwMSIrRrplqZHWACPcBGAYYCw/w400-h208/22.webp" class="w3-animate-left">
+        <p>Baik, cukup seperti itu untuk menginstall SSH Server pada Linux Debian.</p>
+    </div>
+    <div id="debian1" class="w3-container kota" style="display: none; text-align: justify;">
+        <h2><b>Apa Itu Debian?</b></h2>
+        <img src="linuxdebian.jpeg" class="w3-animate-fading" style="width: 200px;">
+        <p>Debian adalah sistem operasi yang tersedia secara bebas untuk pengguna. Karena bersifat open source, Anda dapat berpartisipasi dalam pengembangan sistem operasi ini. OS ini menggunakan kernel Linux sebagai dasar dari sistem operasinya.</p>
+        <p>Sistem operasi adalah pusat eksekusi semua program di komputer atau server. Kernel merupakan jantung dari sistem operasi. Tujuannya adalah untuk mengelola semua aplikasi pada perangkat keras komputer. Dari manajemen memori, proses hingga penyimpanan.</p>
+        <p>Anda dapat mendownload berbagai aplikasi (software) untuk komputer di Debian secara gratis. Dari aplikasi edit teks, gambar, video, dan video game.</p>
+        <p>Fitur-fitur yang ada di sistem operasi ini menjadikan salah satu distro teratas yang ada saat ini. Untuk masalah server, sistem operasi ini juga sudah banyak digunakan oleh perusahaan ternama.</p>
+    </div>
+    <div id="debian2" class="w3-container kota" style="display: none; text-align: justify;">
+        <h2><b>Cara Install Debian</b></h2>
+        <img src="linuxdebian.jpeg" class="w3-animate-fading" style="width: 200px;">
+        <p>1. Untuk membuat mesin virtual baru di VirtualBox, kita klik tombol <b>New</b>.</p>
+        <img src="https://i2.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-1.png?resize=680%2C484&ssl=1" class="w3-animate-fading">
+        <p>2. Beri nama pada mesin virtual anda kemudian pilih <b>Next</b>.</p>
+        <img src="https://i2.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-2.png?resize=680%2C480&ssl=1" class="w3-animate-fading">
+        <p>3. Untuk ukuran memori (RAM) yang digunakan pada mesin virtual anda, saya sarankan 1024MB namun jika spesifikasi laptop / komputer anda pas-pasan, 512MB juga tidak apa-apa. Selanjutnya pilih <b>Next</b>.</p>
+        <img src="https://i2.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-3.png?resize=680%2C484&ssl=1" class="w3-animate-fading">
+        <p>5. Setelah itu pilih <b>VDI (VirtualBox Disk Image)</b>.</p>
+        <img src="https://i2.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-5.png?resize=680%2C484&ssl=1" class="w3-animate-fading">
+        <p>6. Selanjutnya pilih <b>dynamically allocated</b> kemudian pilih <b>Next</b>.</p>
+        <img src="https://i2.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-6.png?resize=680%2C491&ssl=1" class="w3-animate-fading">
+        <p>7. Untuk ukuran harddisk virtual yang digunakan, <b>10GB</b> sudah lebih dari cukup. Setelah itu pilih <b>Create</b>.</p>
+        <img src="https://i2.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-7.png?resize=680%2C485&ssl=1" class="w3-animate-fading">
+        <p>8. Setelah selesai membuat mesin virtual, selanjutnya kita perlu melakukan sedikit pengaturan. Pilih mesin virtual yang telah kita buat tadi (DEBIAN 10) kemudian pilih <b>Settings</b> untuk masuk ke menu pengaturan.</p>
+        <img src="https://i1.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-8.png?resize=680%2C484&ssl=1" class="w3-animate-fading">
+        <p>9. Pada menu Settings, kita pilih <b>Storage</b>. Kemudian pada bagian Controller: IDE, pilih Empty kemudian klik ikon CD seperti yang ditunjuk tanda panah. Pilih file ISO Debian 10 yang sebelumnya sudah anda download.</p>
+        <img src="https://i0.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-9.png?resize=680%2C558&ssl=1" class="w3-animate-fading">
+        <p>10. Jika file ISO Debian 10 berhasil ditambahkan, tampilannya nanti kurang lebih seperti ini. Selanjutnya pilih <b>OK</b>.</p>
+        <img src="https://i2.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-10.png?resize=680%2C558&ssl=1" class="w3-animate-fading">
+        <p>11. Pilih <b>Start</b> untuk memulai proses instalasi.</p>
+        <img src="https://i1.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-11.png?resize=680%2C484&ssl=1" class="w3-animate-fading">
+        <p>12. Berikut ini tampilan awal instalasi Debian 10. Pilih <b>Install</b>.</p>
+        <img src="https://i0.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-12.png?resize=642%2C482&ssl=1" class="w3-animate-fading">
+        <p>13. Pilih <b>English</b>.</p>
+        <img src="https://i1.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-13.png?resize=680%2C510&ssl=1" class="w3-animate-fading">
+        <p>14. Untuk pilihan lokasi dan zona waktu, langsung tekan <b>Enter</b>. Nanti bisa diubah setelah selesai proses instalasi.</p>
+        <img src="https://i0.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-14.png?resize=680%2C510&ssl=1" class="w3-animate-fading">
+        <p>15. Pilih American English, kemudian <b>Enter</b>.</p>
+        <img src="https://i0.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-15.png?resize=680%2C509&ssl=1" class="w3-animate-fading">
+        <p>16. Ketikkan nama hostname-nya, bebas kok. Kemudian pilih <b>Continue</b>.</p>
+        <img src="https://i2.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-16.png?resize=680%2C509&ssl=1" class="w3-animate-fading">
+        <p>17. Masukkan nama domain yang diinginkan, misal nesabamedia.com. Kemudian pilih <b>Continue</b>.</p>
+        <img src="https://i2.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-17.png?resize=680%2C509&ssl=1" class="w3-animate-fading">
+        <p>18. Masukkan password untuk root. Gunakan password yang mudah diingat saja. Kemudian pilih <b>Continue</b>.</p>
+        <img src="https://i1.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-18.png?resize=680%2C510&ssl=1" class="w3-animate-fading">
+        <p>19. Masukkan kembali password root, lalu pilih <b>Continue</b>.</p>
+        <img src="https://i0.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-19.png?resize=680%2C509&ssl=1" class="w3-animate-fading">
+        <p>20. Masukkan nama lengkap untuk pengguna baru anda, misal: zakaria juga tidak apa-apa, tidak harus nama lengkap. Pengguna ini merupakan pengguna biasa, berbeda dengan root yang bisa disebut sebagai administrator yang mempunyai hak dan akses yang lengkap. Jika sudah, pilih <b>Continue</b>.</p>
+        <img src="https://i2.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-20.png?resize=680%2C510&ssl=1" class="w3-animate-fading">
+        <p>21. Masukkan username, samakan dengan nama pengguna saja biar tidak bingung. Lalu pilih <b>Continue</b>.</p>
+        <img src="https://i1.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-21.png?resize=680%2C510&ssl=1" class="w3-animate-fading">
+        <p>22. Masukkan password untuk pengguna baru. Kalau saya biasanya saya buat sama dengan password root, biar tidak lupa. Selanjutnya pilih <b>Continue</b>.</p>
+        <img src="https://i0.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-22.png?resize=680%2C510&ssl=1" class="w3-animate-fading">
+        <p>23. Masukkan kembali passwordnya, kemudian pilih <b>Continue</b>.</p>
+        <img src="https://i2.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-23.png?resize=680%2C509&ssl=1" class="w3-animate-fading">
+        <p>24. Pemilihan zona waktu biarkan default dengan menekan <b>Enter</b>, nanti bisa diubah kok.</p>
+        <img src="https://i1.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-24.png?resize=680%2C510&ssl=1" class="w3-animate-fading">
+        <p>25. Pada tahap partisi harddisk, pilih <b>Guided – use entire disk</b>.</p>
+        <img src="https://i0.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-25.png?resize=680%2C509&ssl=1" class="w3-animate-fading">
+        <p>26. Pilih harddisk yang ingin dipartisi kemudian <b>Enter</b>.</p>
+        <img src="https://i0.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-26.png?resize=680%2C509&ssl=1" class="w3-animate-fading">
+        <p>27. Pembagian partisi yang standar dan sering digunakan, minimal terdapat partisi home, var dan tmp. Maka dari itu, pilih <b>Separate /home, /var, and /tmp partitions</b>.</p>
+        <img src="https://i0.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-27.png?resize=680%2C510&ssl=1" class="w3-animate-fading">
+        <p>27. Selanjutnya pilih <b>Finish partitioning and write changes to disk</b>.</p>
+        <img src="https://i1.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-28.png?resize=680%2C509&ssl=1" class="w3-animate-fading">
+        <p>28. Jika muncul tampilan seperti ini, silakan pilih <b>Yes</b>.</p>
+        <img src="https://i1.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-29.png?resize=680%2C508&ssl=1" class="w3-animate-fading">
+        <p>29. Pada langkah ini, pilih <b>No</b>.</p>
+        <img src="https://i0.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-30.png?resize=680%2C510&ssl=1" class="w3-animate-fading">
+        <p>30. Pilih <b>No</b> pada langkah ini.</p>
+        <img src="https://i1.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-31.png?resize=680%2C507&ssl=1" class="w3-animate-fading">
+        <p>31. Selanjutnya Pilih <b>No</b> lagi.</p>
+        <img src="https://i1.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-32.png?resize=680%2C510&ssl=1" class="w3-animate-fading">
+        <p>32. Disini saya ingin menginstall linux <b>berbasis CLI (terminal)</b> karena lebih ringan. Namun jika anda ingin menggunakan yang versi dekstop (GUI) silakan pilih Debian desktop environment dengan cara menekan tombol spasi. Setelah itu pilih <b>Continue</b>.</p>
+        <img src="https://i1.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-33.png?resize=680%2C509&ssl=1" class="w3-animate-fading">
+        <p>33. Pilih <b>Yes</b> untuk instalasi GRUP boot loader.</p>
+        <img src="https://i2.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-34.png?resize=680%2C510&ssl=1" class="w3-animate-fading">
+        <p>34. Pilih /dev/sda… (nama harddisk anda yang kurang lebih seperti gambar dibawah) kemudian tekan <b>Enter</b>.</p>
+        <img src="https://i0.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-35.png?resize=680%2C510&ssl=1" class="w3-animate-fading">
+        <p>35. Proses instalasi Linux Debian 10 sudah berhasil, terakhir pilih <b>Continue</b>.</p>
+        <img src="https://i1.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-36.png?resize=680%2C510&ssl=1" class="w3-animate-fading">
+        <p>36. Yey, berikut tampilan Linux Debian anda yang berbasis CLI.</p>
+        <img src="https://i2.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-37.png?resize=680%2C508&ssl=1" class="w3-animate-fading">
+        <p>Itulah langkah-langkah cara install Debian 10 di VirtualBox untuk pemula.</p>
+    </div>
+<script>
+    function tujuankota(namakota) {
+        var i;
+        var x = document.getElementsByClassName('kota')
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        document.getElementById(namakota).style.display = 'block';
+    }
+</script>
+</body>
+</html>
