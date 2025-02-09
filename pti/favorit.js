@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', displayFavoriteMeals);
 
+const mealDetailsContent = document.querySelector('.meal-details-content');
+
 function displayFavoriteMeals() {
     const favoriteMeals = JSON.parse(localStorage.getItem('favoriteMeals')) || [];
     const favoriteMealsContainer = document.getElementById('favorite-meals');
@@ -27,10 +29,18 @@ function displayFavoriteMeals() {
 }
 
 function removeFromFavorites(mealId) {
+    const mealIdString = String(mealId);
     let favoriteMeals = JSON.parse(localStorage.getItem('favoriteMeals')) || [];
-    favoriteMeals = favoriteMeals.filter(meal => meal.id !== mealId);
+    
+    favoriteMeals = favoriteMeals.filter(meal => String(meal.id) !== mealIdString);
     localStorage.setItem('favoriteMeals', JSON.stringify(favoriteMeals));
-    displayFavoriteMeals(); // Refresh the displayed favorites
+    
+    // Refresh the page after removing the meal
+    refreshPage();
+}
+
+function refreshPage() {
+    location.reload();
 }
 
 function getMealRecipe(e, mealId) {
@@ -40,8 +50,8 @@ function getMealRecipe(e, mealId) {
     .then(data => mealRecipeModal(data.meals));
 }
 
-function mealRecipeModal(meal) {
-    meal = meal[0];
+function mealRecipeModal(meals) {
+    const meal = meals[0]; // Get the first meal from the array
     let html = `
         <h2 class="recipe-title">${meal.strMeal}</h2>
         <p class="recipe-category">${meal.strCategory}</p>
@@ -55,12 +65,12 @@ function mealRecipeModal(meal) {
         <div class="recipe-link">
             <a href="${meal.strYoutube}" target="_blank">Watch Video</a>
         </div>
-        <button class="btn recipe-close-btn" onclick="closeModal()">Close</button>
+        <button class="btn recipe-close-btn" id="recipe-close-btn" onclick="closeModal()"></button>
     `;
-    mealDetailsContent.innerHTML = html;
-    mealDetailsContent.parentElement.classList.add('showRecipe');
+    mealDetailsContent.innerHTML = html; // Populate the modal with meal details
+    mealDetailsContent.parentElement.classList.add('showRecipe'); // Show the modal
 }
 
 function closeModal() {
-    mealDetailsContent.parentElement.classList.remove('showRecipe');
+    mealDetailsContent.parentElement.classList.remove('showRecipe'); // Hide the modal
 }
