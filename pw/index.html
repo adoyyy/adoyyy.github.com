@@ -7,8 +7,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="w3.css">
-    <link rel="icon" href="linux.png" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="icon" href="asset/linux.png" type="image/gif" sizes="16x16">
     <title>Tutorial Linux</title>
 </head>
 
@@ -50,12 +50,12 @@
     </div>
     <div id="home" class="w3-container kota" style="display: block;">
         <center>
-            <img src="linux.jpeg" style="width: 500px; margin-top: 20px;">
+            <img src="asset/linux.jpeg" style="width: 500px; margin-top: 20px;">
         </center>
     </div>
     <div id="profile" class="w3-container kota" style="display: none;">
         <center>
-            <img src="linux.jpeg" alt="foto saya" class="w3-animate-top" style="width: 200px; margin-top: 20px;">
+            <img ="asset/linux.jpeg" alt="foto saya" class="w3-animate-top" style="width: 200px; margin-top: 20px;">
             <table>
                 <tr><td>Nama</td><td>:</td><td>Achmad Fadly Bayhaqky</td></tr>
                 <tr><td>Nim</td><td>:</td><td>10122495</td></tr>
@@ -65,13 +65,13 @@
     </div>
     <div id="ftpserver1" class="w3-container kota" style="display: none; text-align: justify;">
         <h2><b>Apa Itu FTP Server?</b></h2>
-        <img src="ftpserver.jpeg" class="w3-animate-right" style="width: 200px;">
+        <img ="asset/ftpserver.jpeg" class="w3-animate-right" style="width: 200px;">
         <p><b>FTP (File Transfer Protocol)</b> adalah protocol yang digunakan untuk mengirim data seperti untuk melakukan upload dan download data oleh FTP client dan FTP server. Pada artikel kali ini kita akan membangun sebuah jaringan FTP menggunakan proftpd diinstal di debian. Konfigurasi yang dibuat kali ini adalah user yang terdaftar saja yang akan dapat mengakses data-data yang sudah dimasukan ke FTP server. Cara proses bekerja ftp hampir sama dengan protocol lainnya.</p>
         <p>FTP juga bertugas urusan pertukaran data. Agar client dapat mengakses FTP biasanya menggunakan browser yang terinstal di komputer tersebut atau File Explorer yang ada di Windows, dengan mengetikan url yang sama yaitu ftp:// nama domain atau IP address server.</p>
     </div>
     <div id="ftpserver2" class="w3-container kota" style="display: none; text-align: justify;">
         <h2><b>Konfigurasi FTP Server</b></h2>
-        <img src="ftpserver.jpeg" class="w3-animate-right" style="width: 200px;">
+        <img ="asset/ftpserver.jpeg" class="w3-animate-right" style="width: 200px;">
         <p>Sebelum menginstall ftp di debian server harus terhubung ke internet atau sudah memiliki cd/dvd debian agar saat instalasi proFTPd berhasil. Disini sebagai contoh konfigurasi kali ini menggunakan virtualbox.</p>
         <p>1. Buka debian anda dan login, ketik perintah <b>su</b> agar menjadi user root.</p>
         <p>2. Setelah itu konfigurasi IP address pada interfaces, ketik perintah dibawah ini dan IP address sesuaikan dengan keinginan anda sendiri contoh pada gambar dibawah:</p>
@@ -113,7 +113,7 @@
     </div>
     <div id="webserver1" class="w3-container kota" style="display: none; text-align: justify;">
         <h2><b>Apa Itu Web Server?</b></h2>
-        <img src="webserver.jpeg" class="w3-animate-bottom" style="width: 200px;">
+        <img src="asset/webserver.jpeg" class="w3-animate-bottom" style="width: 200px;">
         <p>Namun sebelum membahas lebih jauh tentang konfigurasi, lebih baik pahami dulu apa itu software transfer data. Web server merupakan software yang menyimpan, memroses, sekaligus mengirimkan file kepada web browser. Perangkat itulah yang memproses permintaan dari user.</p>
         <p>Ada beberapa jenis server yang dipakai oleh banyak pengguna. Setiap software mempunyai kelebihan dan kekurangan. Berikut daftar perangkat lunak open-source yang gratis:</p>
         <ul>
@@ -122,7 +122,7 @@
     </div>
     <div id="webserver2" class="w3-container kota" style="display: none; text-align: justify;">
         <h2><b>Konfigurasi Web Server</b></h2>
-        <img src="webserver.jpeg" class="w3-animate-bottom" style="width: 200px;">
+        <img src="asset/webserver.jpeg" class="w3-animate-bottom" style="width: 200px;">
         <p>Selanjutnya adalah cara untuk konfigurasi Apache di Linux Debian 8 dengan memakai virtualbox. Apache harus di-<em>install</em> dulu dengan perintah apt-get-install Apache2. Setelah terpasang, ikuti langkah berikut:</p>
         <ul>
             <li>Masuklah ke direktori sites-available dengan memasukkan perintah cd/etc/apache2) sites-available.</li>
@@ -146,12 +146,12 @@
     </div>
     <div id="sshserver1" class="w3-container kota" style="display: none; text-align: justify;">
         <h2><b>Apa Itu SSH Server?</b></h2>
-        <img src="sshserver.jpeg" class="w3-animate-left" style="width: 200px;">
+        <img src="asset/sshserver.jpeg" class="w3-animate-left" style="width: 200px;">
         <p>Secara Singkat SSH adalah sebuah protokol administrasi yang memungkinkan user untuk mengakses dan memodifikasi berbagai macam pengaturan maupun file yang ada di dalam server.</p>
     </div>
     <div id="sshserver2" class="w3-container kota" style="display: none; text-align: justify;">
         <h2><b>Konfigurasi SSH Server</b></h2>
-        <img src="sshserver.jpeg" class="w3-animate-left" style="width: 200px;">
+        <img src="asset/sshserver.jpeg" class="w3-animate-left" style="width: 200px;">
         <p>Untuk melakukan Instalasi SSH Server, beberapa tahap harus kita lakukan.</p>
         <ul><li>Konfigurasi IP Address</li><li>Cek Koneksi</li><li>Instalasi SSH Server (openssh-server)</li></ul>
         <p>Baik untuk tahap pertama, pastikan teman-teman sudah login sebagai user <b>root</b> pada sistem operasi linux debian yang sudah kita install sebelumnya.</p>
@@ -218,7 +218,7 @@
     </div>
     <div id="debian1" class="w3-container kota" style="display: none; text-align: justify;">
         <h2><b>Apa Itu Debian?</b></h2>
-        <img src="linuxdebian.jpeg" class="w3-animate-fading" style="width: 200px;">
+        <img src="asset/linuxdebian.jpeg" class="w3-animate-fading" style="width: 200px;">
         <p>Debian adalah sistem operasi yang tersedia secara bebas untuk pengguna. Karena bersifat open source, Anda dapat berpartisipasi dalam pengembangan sistem operasi ini. OS ini menggunakan kernel Linux sebagai dasar dari sistem operasinya.</p>
         <p>Sistem operasi adalah pusat eksekusi semua program di komputer atau server. Kernel merupakan jantung dari sistem operasi. Tujuannya adalah untuk mengelola semua aplikasi pada perangkat keras komputer. Dari manajemen memori, proses hingga penyimpanan.</p>
         <p>Anda dapat mendownload berbagai aplikasi (software) untuk komputer di Debian secara gratis. Dari aplikasi edit teks, gambar, video, dan video game.</p>
@@ -226,7 +226,7 @@
     </div>
     <div id="debian2" class="w3-container kota" style="display: none; text-align: justify;">
         <h2><b>Cara Install Debian</b></h2>
-        <img src="linuxdebian.jpeg" class="w3-animate-fading" style="width: 200px;">
+        <img src="asset/linuxdebian.jpeg" class="w3-animate-fading" style="width: 200px;">
         <p>1. Untuk membuat mesin virtual baru di VirtualBox, kita klik tombol <b>New</b>.</p>
         <img src="https://i2.wp.com/www.nesabamedia.com/wp-content/uploads/2019/10/Instalasi-Debian-10-Langkah-1.png?resize=680%2C484&ssl=1" class="w3-animate-fading">
         <p>2. Beri nama pada mesin virtual anda kemudian pilih <b>Next</b>.</p>
